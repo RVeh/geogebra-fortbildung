@@ -2,74 +2,30 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>GeoGebra-Fortbildung</title>
 
   <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f5f5f5;
-    }
-
-    header {
-      padding: 12px 16px;
-      background: white;
-      border-bottom: 1px solid #cccccc;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 1.4rem;
-    }
-
-    main {
-      padding: 10px;
-    }
-
-    .ggb-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-  </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Analysis mit GeoGebra</h1>
-  </header>
+  <h1>Analysis mit GeoGebra</h1>
 
-  <main>
-    <div class="ggb-container">
-      <div id="ggb-element"></div>
-    </div>
-  </main>
+  <div id="ggb-element"></div>
 
   <script>
     const parameter = {
       appName: "classic",
-
       filename: "ggb/Analysis_ff'.ggb",
 
       width: 1200,
       height: 800,
 
-      scaleContainerClass: "ggb-container",
-      autoHeight: true,
-
       showMenuBar: true,
       showToolBar: true,
       showAlgebraInput: true,
-      allowStyleBar: true,
 
       enableFileFeatures: true,
       enableUndoRedo: true,
