@@ -1,1 +1,7 @@
-# Geogebra-Fortbildung
+## Geogebra-Fortbildung
+
+## GeoGebra
+
+Die GeoGebra-Simulationen können über die
+[gemeinsame Auswahlseite](https://rveh.github.io/geogebra-fortbildung/)
+direkt im Browser geöffnet werden.
