@@ -1,0 +1,807 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=27mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\definecolor{dunkelblau}{HTML}{29495C}
+\definecolor{hellblau}{HTML}{EAF1F4}
+\definecolor{grau}{HTML}{5B6469}
+\definecolor{hellgrau}{HTML}{F3F4F4}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=dunkelblau,
+  urlcolor=dunkelblau,
+  pdftitle={Vom Fallen zum Grenzwert},
+  pdfsubject={Ein reflektierter KI-Einstieg in einen verständnisorientierten Analysisunterricht}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{grau}Vom Fallen zum Grenzwert}
+\fancyhead[R]{\small\color{grau}Reflektierte Arbeit mit KI}
+\fancyfoot[C]{\small\color{grau}\thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+
+\setlist[itemize]{leftmargin=1.5em,itemsep=0.25em,topsep=0.3em}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=0.35em,topsep=0.3em}
+
+\newcommand{\schritt}[1]{\textcolor{dunkelblau}{\textbf{#1}}}
+\newenvironment{leitgedanke}
+  {\begin{quote}\color{dunkelblau}\itshape}
+  {\end{quote}}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \thispagestyle{empty}
+  \vspace*{28mm}
+
+  {\color{dunkelblau}\rule{\textwidth}{1.1pt}}
+
+  \vspace{12mm}
+
+  {\huge\bfseries Vom Fallen zum Grenzwert\par}
+  \vspace{5mm}
+  {\Large Ein reflektierter KI-Einstieg in einen\\
+  verständnisorientierten Analysisunterricht\par}
+
+  \vspace{14mm}
+
+  {\large Das Beispiel des freien Falls\par}
+
+  \vfill
+
+  \begin{minipage}{0.86\textwidth}
+    \color{grau}
+    Dieses Papier beschreibt einen möglichen Weg. Es ist weder Stundenrezept
+    noch Musterlösung. Im Mittelpunkt steht eine didaktische Idee, die von einer
+    Lehrkraft entwickelt, im Gespräch mit einer KI geprüft und anschließend zu
+    einem Unterrichtsvorschlag ausgearbeitet wird.
+  \end{minipage}
+
+  \vspace{15mm}
+  {\color{dunkelblau}\rule{\textwidth}{1.1pt}}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\section{Worum es in diesem Beispiel geht}
+
+Der Ausgangspunkt ist unscheinbar: Eine Lehrkraft hält eine Kugel in der Hand
+und fragt:
+
+\begin{leitgedanke}
+Wie schnell ist die Kugel nach zwei Sekunden, wenn ich sie jetzt fallen lasse?
+\end{leitgedanke}
+
+Die Frage ist anschaulich, aber nicht unmittelbar beantwortbar. Wege und Zeiten
+lassen sich messen. Aus ihnen können mittlere Geschwindigkeiten berechnet
+werden. Die Geschwindigkeit \emph{genau} zu einem Zeitpunkt ist dagegen nicht
+einfach ein weiterer Messwert derselben Art.
+
+Damit entsteht ein fachlich ergiebiger Weg:
+
+\[
+\boxed{\text{Frage}}
+\longrightarrow
+\boxed{\text{Daten}}
+\longrightarrow
+\boxed{\text{Modell}}
+\longrightarrow
+\boxed{\text{Grenzprozess}}
+\longrightarrow
+\boxed{\text{Begriff}}
+\]
+
+Die Ableitung steht nicht am Anfang. Sie wird benötigt, weil eine verständliche
+Frage mit den zunächst verfügbaren Mitteln nicht befriedigend beantwortet werden
+kann. In diesem Sinn kann das Beispiel einen genetischen Zugang zur
+Momentangeschwindigkeit und damit zum Ableitungsbegriff eröffnen.
+
+Zugleich zeigt die Entstehung dieses Vorschlags eine mögliche Form reflektierter
+KI-Nutzung. Die Lehrkraft gibt nicht die Verantwortung für Unterricht an ein
+System ab. Sie bringt eine didaktische Entscheidung zur Sprache, lässt sie
+prüfen, reagiert auf Einwände, präzisiert ihre Absicht und nutzt die KI
+anschließend zur Ausarbeitung.
+
+\begin{leitgedanke}
+Die Lehrkraft bleibt Autorin der didaktischen Entscheidung. Die KI kann ihr
+Gegenüber sein; sie ersetzt weder Urteil noch Verantwortung.
+\end{leitgedanke}
+
+
+\section{Eine erste didaktische Rückmeldung}
+
+Der Vorschlag besitzt mehrere Stärken.
+
+\subsection{Eine Frage macht Mathematik notwendig}
+
+Die Lernenden beginnen nicht mit der Aufforderung, eine Funktion abzuleiten.
+Sie beginnen mit einer Frage, zu deren Beantwortung Mathematik gebraucht wird.
+Damit erhält der spätere Begriff eine Funktion: Die momentane Änderungsrate
+beantwortet etwas, das mit mittleren Änderungsraten allein offenbleibt.
+
+\subsection{Daten stehen vor der Formel}
+
+Zunächst ist zu klären, welche Größen überhaupt beobachtet und gemessen werden
+können. Naheliegend sind Zeitpunkte und die bis dahin zurückgelegten Wege. Aus
+ihnen entstehen Tabellen und mittlere Geschwindigkeiten. Das Modell
+
+\[
+  s(t)=5t^2
+\]
+
+wird erst später eingeführt. Es ist dann nicht bloß eine Rechenvorschrift,
+sondern eine Verdichtung und Idealisierung des beobachteten Zusammenhangs.
+
+\subsection{Eine produktive Grenze wird erfahrbar}
+
+Eine endliche Tabelle enthält nur endlich viele Zeitpunkte. Aus je zwei
+Messwerten lässt sich eine mittlere Geschwindigkeit für ein Zeitintervall
+bestimmen. Kein noch so sorgfältig notierter Tabellenwert ist jedoch schon die
+Geschwindigkeit in einem einzelnen Zeitpunkt.
+
+Gerade dieses vorläufige Nicht-Weiterkommen ist didaktisch wertvoll. Es sollte
+nicht vorschnell durch die Mitteilung einer Ableitungsregel beendet werden. Die
+Grenze des bisherigen Verfahrens erzeugt erst den Bedarf nach einer neuen Idee.
+
+\subsection{Eine reale Stolperstelle gehört dazu}
+
+Nach dem vereinfachten Modell legt die Kugel in zwei Sekunden etwa
+
+\[
+  s(2)=5\cdot 2^2=20\,\mathrm{m}
+\]
+
+zurück. Das lässt sich in einem gewöhnlichen Klassenraum nicht vorführen. Diese
+Beobachtung ist kein nebensächlicher Fehler, sondern eine hilfreiche
+Prüffrage. Die Szene mit der Kugel kann als Gedankenexperiment dienen. Für eine
+reale Messung bieten sich ein deutlich kürzerer Zeitraum, eine Videoaufnahme
+oder vorhandene Messdaten an. Auch hier hilft die Rückfrage eines Gegenübers,
+eine gute Idee unter realen Bedingungen tragfähig zu machen.
+
+
+\section{Ein möglicher Unterrichtsgang}
+
+Die folgenden Phasen bilden keinen verbindlichen Ablauf. Sie markieren
+didaktische Funktionen, die je nach Lerngruppe anders angeordnet, verkürzt oder
+vertieft werden können.
+
+\subsection{Phase 1: Die Frage öffnen}
+
+Die Lehrkraft zeigt die Kugel und stellt die Ausgangsfrage. Zunächst werden
+Vermutungen gesammelt, ohne sofort eine Formel bereitzustellen.
+
+Mögliche Gesprächsimpulse sind:
+
+\begin{itemize}
+  \item Was genau bedeutet hier \glqq wie schnell\grqq?
+  \item Welche Größen müssten wir kennen oder messen?
+  \item Können wir die Geschwindigkeit nach zwei Sekunden direkt messen?
+  \item Woran würden wir erkennen, dass eine Antwort gut ist?
+\end{itemize}
+
+Bereits hier kann zwischen einer Anzeige auf einem Messgerät und der
+mathematischen Bedeutung einer Momentangeschwindigkeit unterschieden werden.
+Auch eine Geräteanzeige beruht auf einem Messverfahren, einem endlichen
+Zeitfenster und einer Auswertung.
+
+\subsection{Phase 2: Daten erheben oder erhalten}
+
+Die Lernenden erhalten Zeit-Weg-Daten in unterschiedlicher Auflösung. Die Werte
+können aus einem geeigneten Versuch, einer Videoanalyse oder einer bewusst
+rekonstruierten Messreihe stammen. Im letzten Fall sollte offengelegt werden,
+dass es sich nicht um tatsächlich gemessene Daten handelt.
+
+Eine kleine, absichtlich nicht vollkommen modellkonforme Messreihe könnte etwa
+so aussehen:
+
+\begin{center}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+$t$ in $\mathrm{s}$ & 0{,}0 & 0{,}5 & 1{,}0 & 1{,}5 & 1{,}9 & 2{,}0 \\
+\midrule
+$s$ in $\mathrm{m}$ & 0{,}0 & 1{,}3 & 5{,}1 & 11{,}2 & 18{,}0 & 20{,}1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Die kleinen Abweichungen sind sachlich sinnvoll: Reale Daten tragen
+Messunsicherheiten. Sie dürfen nicht nachträglich so behandelt werden, als seien
+sie bereits eine exakte Funktion.
+
+\subsection{Phase 3: Mittlere Geschwindigkeiten untersuchen}
+
+Aus zwei Wegmessungen lässt sich die mittlere Geschwindigkeit berechnen:
+
+\[
+  \bar v=\frac{\Delta s}{\Delta t}
+  =\frac{s(t_2)-s(t_1)}{t_2-t_1}.
+\]
+
+Hier liegt eine wichtige Präzisierung. Der Quotient
+
+\[
+  \frac{s(t)}{t}
+\]
+
+beschreibt bei $s(0)=0$ die mittlere Geschwindigkeit vom Loslassen bis zum
+Zeitpunkt $t$. Für die Geschwindigkeit \emph{bei} $t=2$ müssen dagegen
+Zeitintervalle betrachtet werden, deren Endpunkte immer näher an $2$ liegen,
+zum Beispiel
+
+\[
+  [1,2],\qquad [1{,}5,2],\qquad [1{,}9,2].
+\]
+
+Die Lernenden erhalten auf diese Weise immer lokalere mittlere
+Geschwindigkeiten. Doch mit Messdaten tritt ein neues Problem auf: Je kleiner
+das Intervall wird, desto stärker können sich Messfehler im Quotienten
+auswirken. Eine feinere Tabelle ist deshalb nicht automatisch eine exaktere
+Antwort.
+
+\subsection{Phase 4: Die Grenze der Daten festhalten}
+
+An dieser Stelle lohnt eine bewusste Zwischenbilanz:
+
+\begin{itemize}
+  \item Die Daten ermöglichen Aussagen über endliche Zeitintervalle.
+  \item Kürzere Intervalle führen näher an den gemeinten Zeitpunkt heran.
+  \item Ein einzelner Zeitpunkt besitzt aber keine von null verschiedene
+        Zeitdauer.
+  \item Endlich viele, ungenaue Messwerte liefern daher keine exakte
+        Momentangeschwindigkeit.
+\end{itemize}
+
+Die Klasse ist nicht gescheitert. Sie hat die Leistungsfähigkeit und die Grenze
+eines Verfahrens erkannt. Nun kann die Frage entstehen, was zusätzlich benötigt
+wird.
+
+\subsection{Phase 5: Ein funktionales Modell einführen}
+
+Für den idealisierten freien Fall ohne Luftwiderstand wird das vereinfachte
+Modell
+
+\[
+  s(t)=5t^2,\qquad t\geq 0,
+\]
+
+verwendet. Der Faktor $5$ steht näherungsweise für $g/2$ mit
+$g\approx 9{,}81\,\mathrm{m/s^2}$. Die Vereinfachung hält die Rechnung
+übersichtlich, ohne die Struktur des Zusammenhangs zu verändern.
+
+Mit der Funktion verändert sich die Art des Gegenstands. Statt einer endlichen
+Liste von Messwerten liegt nun ein idealisierter Zusammenhang für alle reellen
+Zeitpunkte des betrachteten Intervalls vor. Dadurch können Zeitabstände $h$
+beliebig klein gedacht werden.
+
+Für Intervalle, die bei $t=2$ enden, ergibt sich
+
+\begin{align*}
+  \frac{s(2)-s(2-h)}{h}
+  &=\frac{20-5(2-h)^2}{h}\\
+  &=\frac{20-(20-20h+5h^2)}{h}\\
+  &=20-5h.
+\end{align*}
+
+Die Annäherung wird in einer Modellrechnung sichtbar:
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+$h$ in $\mathrm{s}$ & 1 & 0{,}5 & 0{,}1 & 0{,}01 \\
+\midrule
+$\dfrac{s(2)-s(2-h)}{h}$ in $\mathrm{m/s}$
+  & 15 & 17{,}5 & 19{,}5 & 19{,}95 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Phase 6: Den Grenzprozess vollziehen}
+
+Nun wird nicht einfach ein immer kleineres, aber festes Intervall gewählt. Es
+wird gefragt, welchem Wert die mittleren Geschwindigkeiten zustreben, wenn der
+Zeitabstand ohne positive Untergrenze verkleinert wird:
+
+\[
+  v(2)
+  =\lim_{h\to 0}\frac{s(2)-s(2-h)}{h}
+  =\lim_{h\to 0}(20-5h)
+  =20\,\mathrm{m/s}.
+\]
+
+Mit dem üblichen beidseitigen Differenzenquotienten lautet dieselbe Idee:
+
+\[
+  \lim_{h\to 0}\frac{s(2+h)-s(2)}{h}
+  =\lim_{h\to 0}(20+5h)
+  =20\,\mathrm{m/s}.
+\]
+
+Der Grenzwert ist nicht der Quotient für $h=0$; dieser wäre gar nicht definiert.
+Er beschreibt das Verhalten der Quotienten für beliebig kleine, von null
+verschiedene Werte von $h$.
+
+\subsection{Phase 7: Den Begriff sichern}
+
+Erst jetzt wird der fachliche Begriff ausdrücklich gefasst:
+
+\begin{leitgedanke}
+Die Momentangeschwindigkeit ist die momentane Änderungsrate der Wegfunktion. Im
+mathematischen Modell wird sie als Grenzwert mittlerer Änderungsraten definiert.
+\end{leitgedanke}
+
+Für die Wegfunktion $s$ ist die Geschwindigkeitsfunktion ihre Ableitung:
+
+\[
+  v(t)=s'(t).
+\]
+
+Im vorliegenden Modell gilt $s'(t)=10t$ und damit $v(2)=20\,\mathrm{m/s}$.
+Die bekannte Ableitungsregel erscheint hier als ökonomische Fortsetzung einer
+inhaltlich bereits verstandenen Grenzwertidee, nicht als deren Ersatz.
+
+
+\section{Warum die reellen Zahlen eine Rolle spielen}
+
+Messdaten bilden eine endliche Menge. Auch eine sehr umfangreiche Tabelle lässt
+zwischen zwei aufeinanderfolgenden Einträgen Lücken. Der Grenzprozess verlangt
+dagegen, dass zu jedem noch so kleinen Zeitabstand ein kleinerer betrachtet
+werden kann.
+
+Im schulischen Modell wird deshalb von einer Funktion auf einem reellen
+Intervall ausgegangen. Das Kontinuum der reellen Zahlen trägt die Idealisierung,
+in der $h$ beliebig nahe an null heranrücken kann. Erst dieser Wechsel
+
+\[
+  \text{endliche Daten}
+  \quad\longrightarrow\quad
+  \text{Funktion auf einem reellen Intervall}
+\]
+
+ermöglicht den zugehörigen Grenzprozess in der vertrauten Form.
+
+Dabei ist eine fachliche Nuance hilfreich: Nicht die bloße Verwendung des
+Symbols $\mathbb{R}$ erzeugt bereits Verständnis. Entscheidend ist die neue
+Qualität der Modellierung: Aus einzelnen Beobachtungen wird ein kontinuierlich
+gedachter Zusammenhang. Fachmathematisch lassen sich Grenzwerte auch auf
+geeigneten dichten Teilmengen untersuchen. Für den Unterricht bleibt der
+Übergang von endlich vielen Daten zu einem reellen Funktionsmodell die zentrale
+Idee.
+
+
+\section{Momentangeschwindigkeit als Modellgröße}
+
+Die Rechnung liefert eine präzise Zahl. Trotzdem ist diese Zahl nicht einfach
+\glqq die Realität\grqq. Sie gehört zu einem Modell, das bestimmte Aspekte
+auswählt und andere ausblendet.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+                                  >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Reale Situation} & \textbf{Mathematisches Modell} \\
+\midrule
+Kugel mit Ausdehnung, Material und möglicher Rotation
+  & idealisierter Körper beziehungsweise Massenpunkt \\
+Luftwiderstand und wechselnde Umgebungsbedingungen
+  & Luftwiderstand wird vernachlässigt \\
+Beschleunigung ist ortsabhängig und wird nur näherungsweise erfasst
+  & konstante Beschleunigung, hier vereinfacht mit $g=10\,\mathrm{m/s^2}$ \\
+endlich viele Messungen mit begrenzter Genauigkeit
+  & Funktionswerte für alle reellen Zeitpunkte eines Intervalls \\
+mittlere Geschwindigkeit in einem endlichen Messfenster
+  & Momentangeschwindigkeit als Grenzwert \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Die Momentangeschwindigkeit ist damit eine mathematisch erzeugte und physikalisch
+gedeutete Größe. Sie ist nicht beliebig: Das Modell muss sich an Beobachtungen
+bewähren. Sie ist aber auch nicht mit einem unmittelbar gegebenen Stück Realität
+gleichzusetzen.
+
+Diese Trennung ist für einen verständnisorientierten Analysisunterricht
+wesentlich. Der Grenzprozess macht nicht nur eine Rechnung genauer. Er
+konstituiert innerhalb des Modells einen neuen Begriff.
+
+
+\section{Die Rolle der Lehrkraft und die Rolle der KI}
+
+Das Beispiel ist auch deshalb aufschlussreich, weil der Arbeitsprozess selbst
+zum Gegenstand werden kann.
+
+\subsection{Die Lehrkraft entscheidet didaktisch}
+
+Bei der Lehrkraft verbleiben insbesondere die Entscheidungen,
+
+\begin{itemize}
+  \item welche Frage für die Lerngruppe bedeutsam und zugänglich ist,
+  \item welche fachliche Einsicht angebahnt werden soll,
+  \item wann Daten, Darstellungen, Modell und Begriff ins Spiel kommen,
+  \item welche Irritation produktiv ist und wo Unterstützung nötig wird,
+  \item welche Vereinfachungen verantwortbar sind,
+  \item wie Beiträge der Lernenden aufgenommen werden und
+  \item woran sich Verstehen zeigen kann.
+\end{itemize}
+
+Diese Entscheidungen sind nicht nachträgliche Dekoration eines von der KI
+erzeugten Materials. Sie bilden dessen Ausgangspunkt und Maßstab.
+
+\subsection{Die KI kann ein fachliches Gegenüber sein}
+
+Eine KI kann den Entwurf der Lehrkraft unterstützen, indem sie beispielsweise
+
+\begin{itemize}
+  \item die innere Linie einer Idee sichtbar macht,
+  \item zwischen mittlerer und momentaner Geschwindigkeit unterscheidet,
+  \item Rechnungen und Einheiten prüft,
+  \item auf die unrealistische Fallhöhe nach zwei Sekunden hinweist,
+  \item mögliche Lernschwierigkeiten oder Alternativen benennt,
+  \item Daten, Aufgabenstellungen oder Darstellungen variiert und
+  \item aus einer geklärten Konzeption ein weitergebbares Dokument erstellt.
+\end{itemize}
+
+Auch diese Beiträge müssen geprüft werden. Die KI kennt die konkrete Lerngruppe
+nicht, kann didaktische Absichten missverstehen und fachlich plausible, aber für
+die Situation unpassende Vorschläge machen.
+
+\subsection{Keine Einbahnstraße}
+
+Reflektierte Arbeit mit KI ist hier ein dialogischer Prozess:
+
+\begin{enumerate}
+  \item Die Lehrkraft formuliert ihre Idee und ihre Absicht.
+  \item Die KI gibt eine fachliche und didaktische Rückmeldung.
+  \item Die Lehrkraft gewichtet die Rückmeldung, widerspricht oder präzisiert.
+  \item Die KI arbeitet auf der geklärten Grundlage weiter.
+  \item Die Lehrkraft prüft, verändert und verantwortet das Ergebnis.
+\end{enumerate}
+
+Die Qualität liegt nicht allein im fertigen Text. Sie liegt auch in den
+Rückfragen, Einwänden und Präzisierungen, durch die der didaktische Gedanke
+schärfer wird.
+
+
+\section{Ein möglicher Arbeitsauftrag an eine KI}
+
+Eine Lehrkraft könnte ihren Entwurf zum Beispiel mit einer Anfrage wie der
+folgenden zur Diskussion stellen:
+
+\begin{quote}
+\small
+Ich plane einen Einstieg in die Differentialrechnung über die Frage: \glqq Wie
+schnell ist eine fallende Kugel nach zwei Sekunden?\grqq{} Die Lernenden sollen
+zunächst überlegen, welche Daten sie benötigen, und aus Zeit-Weg-Daten mittlere
+Geschwindigkeiten bestimmen. Erst wenn die Grenze endlicher Messintervalle
+sichtbar geworden ist, möchte ich das Modell $s(t)=5t^2$ einführen und zur
+Momentangeschwindigkeit als Grenzwert übergehen.
+
+Gib mir bitte zunächst eine kritische didaktische Rückmeldung. Prüfe insbesondere
+die Unterscheidung von Messung und Modell, von mittlerer und momentaner
+Geschwindigkeit sowie die praktische Plausibilität des Settings. Erstelle noch
+kein fertiges Material. Stelle heraus, an welchen Stellen die Lehrkraft eine
+didaktische Entscheidung treffen muss. Erst nach meiner Rückmeldung soll daraus
+ein Unterrichtsvorschlag entstehen.
+\end{quote}
+
+Die Formulierung ist nicht als optimale Prompt-Schablone gemeint. Sie zeigt
+vielmehr eine Haltung: Die Lehrkraft legt ihre Überlegungen offen, fordert
+Kritik an und behält die Reihenfolge der Arbeit in der Hand.
+
+
+\section{Mögliche Beobachtungs- und Reflexionsfragen}
+
+Wenn der Unterricht erprobt wird, könnten unter anderem folgende Fragen die
+Auswertung leiten:
+
+\begin{itemize}
+  \item Unterscheiden die Lernenden die Geschwindigkeit bis zu einem Zeitpunkt
+        von der Geschwindigkeit in diesem Zeitpunkt?
+  \item Erkennen sie, warum kleinere Messintervalle allein das Problem nicht
+        vollständig lösen?
+  \item Erleben sie die Funktion als benötigtes Modell oder nur als nachträglich
+        mitgeteilte Formel?
+  \item Können sie erläutern, was bei $h\to 0$ geschieht, ohne $h=0$ zu setzen?
+  \item Trennen sie Messwert, Modellwert und Grenzwert sprachlich und sachlich?
+  \item Können sie angeben, welche Annahmen in $s(t)=5t^2$ stecken?
+  \item Wird die Ableitung als Antwort auf eine entstandene Frage verstanden?
+\end{itemize}
+
+Solche Beobachtungen können wiederum in ein weiteres Gespräch mit der KI
+einfließen. Auch dann bleibt die Interpretation der Unterrichtssituation eine
+professionelle Aufgabe der Lehrkraft.
+
+
+\section{Schluss: ein Weg, nicht der einzige}
+
+Das Beispiel des freien Falls ist fachlich elementar und didaktisch keineswegs
+belanglos. Es verbindet eine anschauliche Frage mit der Einsicht, dass Daten
+allein keine Momentangeschwindigkeit hervorbringen. Erst das funktionale Modell
+auf einem reellen Intervall eröffnet den Grenzprozess; in diesem Prozess entsteht
+die Momentangeschwindigkeit als Modellgröße.
+
+Ebenso wichtig ist die zweite Ebene des Beispiels. Eine Lehrkraft kann eine
+eigene didaktische Idee in das Gespräch mit einer KI geben, ohne ihre
+Autorschaft abzugeben. Die KI kann prüfen, irritieren, ordnen und ausarbeiten.
+Die Lehrkraft bestimmt jedoch, welche Mathematik aus welchem Grund zum Thema
+wird und was für ihre Lernenden ein sinnvoller Weg sein kann.
+
+\begin{leitgedanke}
+Nicht die KI entwirft den verständnisorientierten Unterricht. Eine reflektiert
+arbeitende Lehrkraft nutzt die KI, um ihre didaktischen Entscheidungen genauer
+zu sehen und besser auszuarbeiten.
+\end{leitgedanke}
+
+Dieser Weg kann tragen. Er ist nicht der einzige.
+
+
+\clearpage
+\appendix
+\section{Die Arbeit geht weiter: didaktische Übergänge gestalten}
+
+Mit dem beschriebenen Unterrichtsgang ist die didaktische Arbeit nicht
+abgeschlossen. Im Gegenteil: Gerade an den Übergängen von der Tabelle zum Term,
+vom Term zum Grenzprozess und vom Grenzprozess zum Begriff entstehen weitere
+Entscheidungen. Sie lassen sich nicht durch ein fertiges Material vorwegnehmen.
+
+Eine Lehrkraft muss für ihre Lerngruppe unter anderem klären:
+
+\begin{itemize}
+  \item Wie viele Annäherungsschritte sind hilfreich?
+  \item Wann trägt eine weitere Tabelle zum Verständnis bei und wann wird sie
+        nur noch mechanisch fortgesetzt?
+  \item Wie wird die neue Schreibweise sprachlich und anschaulich vorbereitet?
+  \item Welche Vorstellung vom Grenzwert kann zu Beginn aufgebaut werden?
+  \item Wie lässt sich erklären, dass $h$ gegen null geht, aber im
+        Differenzenquotienten nicht null sein darf?
+\end{itemize}
+
+Auch hierbei kann eine KI als Gesprächspartnerin dienen. Die Lehrkraft kann
+Varianten prüfen, Formulierungen vergleichen oder mögliche Schwierigkeiten
+antizipieren lassen. Sie kann dieselben Entscheidungen aber ebenso im Austausch
+mit Kolleginnen und Kollegen oder aus der Beobachtung ihrer Lerngruppe heraus
+entwickeln. Entscheidend ist nicht, dass KI an jedem Schritt beteiligt ist.
+Entscheidend ist, dass die didaktische Arbeit weitergeht.
+
+\begin{leitgedanke}
+Mit oder ohne KI: Die Lehrkraft beobachtet, entscheidet, erprobt, verwirft und
+entwickelt weiter. Kein erzeugtes Material nimmt ihr diese Arbeit ab.
+\end{leitgedanke}
+
+
+\subsection{Ist eine weitere Tabelle sinnvoll?}
+
+Eine Tabelle mit noch kleineren Schrittweiten kann sehr hilfreich sein. Sie
+macht die Annäherung sinnlich und rechnerisch zugänglich. Ihre Funktion sollte
+jedoch geklärt sein.
+
+Zunächst können Messdaten zeigen, dass kürzere Intervalle lokalere mittlere
+Geschwindigkeiten liefern. Zugleich bleibt sichtbar, dass Messwerte endlich und
+fehlerbehaftet sind. Danach kann eine aus dem Modell $s(t)=5t^2$ berechnete
+Tabelle eine andere Aufgabe übernehmen:
+
+\begin{center}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+$h$ in $\mathrm{s}$
+  & 1 & 0{,}5 & 0{,}1 & 0{,}01 & 0{,}001 & 0{,}0001 \\
+\midrule
+$\dfrac{s(2)-s(2-h)}{h}$ in $\mathrm{m/s}$
+  & 15 & 17{,}5 & 19{,}5 & 19{,}95 & 19{,}995 & 19{,}9995 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Die Fortsetzung ist dann nicht nur \glqq mehr vom Gleichen\grqq. Sie lenkt den
+Blick auf ein stabiles Verhalten: Die Werte kommen $20$ immer näher. Die
+Lernenden können vermuten, welcher Wert sich als Ziel der Annäherung anbietet.
+
+Dabei bleiben Fragen für die Lehrkraft offen: Sollen die Werte selbst berechnet
+werden? Genügt eine vorgegebene Tabelle? Hilft eine Tabellenkalkulation oder
+verdeckt sie an dieser Stelle die Struktur? Ist zusätzlich eine graphische
+Darstellung der Sekanten sinnvoll? Die Antwort hängt vom bisherigen Unterricht
+und von der Lerngruppe ab.
+
+
+\subsection{Wie kann die Schreibweise
+\texorpdfstring{$f(2+h)$}{f(2+h)} vorbereitet werden?}
+
+Die Schreibweise $f(2+h)$ ist für viele Schülerinnen und Schüler weder
+selbstverständlich noch bloß eine kleine Notationsänderung. Mehrere neue
+Gedanken treffen aufeinander: Ein Zeitpunkt wird verändert, die Veränderung
+erhält einen Namen, und dieser veränderte Zeitpunkt wird als Argument einer
+Funktion eingesetzt.
+
+Eine sprachliche Brücke kann deshalb vor der Formel stehen:
+
+\begin{quote}
+Wir betrachten den Zeitpunkt $2$ und einen zweiten Zeitpunkt, der nur wenig von
+ihm entfernt liegt. Den zeitlichen Abstand zwischen beiden nennen wir $h$. Der
+zweite Zeitpunkt ist dann $2+h$.
+\end{quote}
+
+Eine einfache Zeitachse kann die Konstruktion stützen:
+
+\[
+  2
+  \quad\xrightarrow{\hspace*{12mm}h\hspace*{12mm}}\quad
+  2+h.
+\]
+
+Die beiden zugehörigen Wege sind $s(2)$ und $s(2+h)$. Ihre Differenz wird durch
+den zeitlichen Abstand geteilt:
+
+\[
+  \frac{s(2+h)-s(2)}{h}.
+\]
+
+Für den Einstieg kann auch die rückwärts gerichtete Betrachtung zugänglicher
+sein. Dann ist $h>0$ die Länge eines Zeitintervalls, das bei $2$ endet:
+
+\[
+  2-h
+  \quad\xrightarrow{\hspace*{12mm}h\hspace*{12mm}}\quad
+  2,
+  \qquad
+  \frac{s(2)-s(2-h)}{h}.
+\]
+
+Diese Variante hält die Vorstellung des positiven Zeitabstands zunächst fest.
+Später kann sie mit der vorwärts gerichteten und schließlich mit der allgemeinen
+Schreibweise
+
+\[
+  \frac{f(x+h)-f(x)}{h}
+\]
+
+verbunden werden. Wann dieser Übergang erfolgt, ist eine didaktische
+Entscheidung. Wird die allgemeine Form zu früh eingeführt, können neue Symbolik,
+neuer Quotient und neue Grenzwertidee einander überlagern.
+
+
+\subsection{Wie kann der Grenzwert beginnen, wenn das Grenzwertsymbol noch
+unbekannt ist?}
+
+Die Grenzwertvorstellung kann aufgebaut werden, bevor das Symbol $\lim$
+eingeführt wird. Tabelle, Term und Sprache tragen zunächst den Gedanken.
+
+Aus
+
+\[
+  \frac{s(2)-s(2-h)}{h}=20-5h
+\]
+
+und den berechneten Werten lässt sich formulieren:
+
+\begin{quote}
+Wir können $h$ immer kleiner wählen. Dadurch können wir die mittlere
+Geschwindigkeit beliebig nahe an $20\,\mathrm{m/s}$ heranbringen.
+\end{quote}
+
+An dieser Stelle lohnt sprachliche Genauigkeit:
+
+\begin{itemize}
+  \item Der Zeitpunkt $2-h$ liegt für kleines $h$ beliebig nahe beim Zeitpunkt
+        $2$.
+  \item Der Differenzenquotient $20-5h$ liegt dadurch beliebig nahe beim Wert
+        $20$.
+\end{itemize}
+
+Erst wenn diese Bewegung an Beispielen verstanden ist, erhält sie einen Namen
+und ein Zeichen:
+
+\[
+  \lim_{h\to 0}(20-5h)=20.
+\]
+
+Das Symbol fasst dann einen bereits entwickelten Gedanken zusammen. Es steht
+nicht am Anfang als zusätzliche Hürde. Wie weit die Formulierung \glqq beliebig
+nahe\grqq{} zu diesem Zeitpunkt präzisiert wird, hängt vom angestrebten
+Begriffsniveau ab. Für einen ersten Zugang ist eine tragfähige dynamische
+Vorstellung wichtiger als eine vorschnelle formale Definition.
+
+
+\subsection{Warum darf man nicht einfach
+\texorpdfstring{$h=0$}{h=0} setzen?}
+
+Der Differenzenquotient vergleicht Funktionswerte an zwei verschiedenen
+Zeitpunkten:
+
+\[
+  \frac{s(2+h)-s(2)}{h}.
+\]
+
+Für $h=0$ fallen die beiden Zeitpunkte zusammen. Es entstünde
+
+\[
+  \frac{s(2)-s(2)}{0}=\frac{0}{0}.
+\]
+
+Dieser Quotient ist nicht definiert. Zugleich verschwindet das Zeitintervall,
+über das eine mittlere Geschwindigkeit bestimmt werden könnte. Deshalb wird
+$h=0$ nicht in den Differenzenquotienten eingesetzt.
+
+Im konkreten Beispiel gilt für $h\neq 0$:
+
+\begin{align*}
+  \frac{s(2+h)-s(2)}{h}
+  &=\frac{5(2+h)^2-20}{h}\\
+  &=\frac{20h+5h^2}{h}\\
+  &=20+5h.
+\end{align*}
+
+Der letzte Term ist auch bei $h=0$ definiert. Daraus kann leicht der Eindruck
+entstehen, man habe nun doch einfach $h=0$ eingesetzt. Inhaltlich muss jedoch
+unterschieden werden:
+
+\begin{itemize}
+  \item Der ursprüngliche Differenzenquotient bleibt bei $h=0$ undefiniert.
+  \item Für jedes $h\neq0$ besitzt er denselben Wert wie $20+5h$.
+  \item Das Verhalten von $20+5h$ in der Nähe von null zeigt, welchem Wert der
+        Differenzenquotient zustrebt.
+\end{itemize}
+
+Eine knappe Formulierung für die Lerngruppe kann lauten:
+
+\begin{leitgedanke}
+Wir berechnen den Quotienten nicht bei $h=0$. Wir untersuchen, was mit seinen
+Werten geschieht, wenn $h$ beliebig nahe an null heranrückt.
+\end{leitgedanke}
+
+Der Grenzwert schließt damit nicht einfach eine rechnerische Lücke. Er beschreibt
+das Verhalten in der Umgebung einer Stelle, obwohl der untersuchte Quotient an
+der Stelle selbst nicht definiert ist.
+
+
+\subsection{Weitere Entscheidungen, die offenbleiben dürfen}
+
+Auch nach diesen Klärungen ist kein vollständig festgelegter Unterricht
+entstanden. Weitere Fragen können produktiv offenbleiben:
+
+\begin{itemize}
+  \item Wird zunächst nur ein einseitiges Annähern betrachtet oder werden beide
+        Seiten früh miteinander verglichen?
+  \item Wann wird die Sekante im Weg-Zeit-Diagramm einbezogen, wann die Tangente?
+  \item Wie werden Messunsicherheit und Modellabweichung thematisiert, ohne den
+        begrifflichen Aufbau zu überladen?
+  \item Wann wird vom konkreten Zeitpunkt $2$ zum allgemeinen Zeitpunkt $t$
+        übergegangen?
+  \item Wann wird aus der einzelnen Momentangeschwindigkeit eine
+        Geschwindigkeitsfunktion?
+  \item Welche Äußerungen der Lernenden zeigen tatsächlich, dass der
+        Grenzprozess verstanden wurde?
+\end{itemize}
+
+Solche Fragen sind kein Mangel des Materials. Sie sind Ausdruck professioneller
+Autorschaft. Eine KI kann beim Weiterdenken helfen, Alternativen erzeugen und
+Widersprüche sichtbar machen. Sie kann aber weder die Reaktionen einer konkreten
+Lerngruppe vorwegnehmen noch die daraus folgenden Entscheidungen verantworten.
+
+\begin{leitgedanke}
+Das Gespräch mit der KI kann enden; die didaktische Arbeit der Lehrkraft geht
+weiter. Und auch wenn das Gespräch fortgesetzt wird, bleibt es die Lehrkraft,
+die beobachtet, urteilt und entscheidet.
+\end{leitgedanke}
+
+\end{document}
